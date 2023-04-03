@@ -1,6 +1,7 @@
 import pygame
 import sys
 import random
+import os
 from pygame.locals import *
 
 # Game settings
@@ -28,7 +29,8 @@ class Snake:
 
         if self.segments[0] == hamster.position:
             hamster.respawn(self)
-            pygame.mixer.Sound.play(squeak_sound)
+            if squeak_sound:
+                pygame.mixer.Sound.play(squeak_sound)
         else:
             self.segments.pop()
 
@@ -45,6 +47,18 @@ class Hamster:
         while self.position == [0, 0] or (snake and self.position in snake.segments):
             self.position = [random.randint(0, GRID_WIDTH - 1), random.randint(0, GRID_HEIGHT - 1)]
 
+def load_sound(file_name):
+    if not pygame.mixer:
+        return None
+    file_path = os.path.join(os.path.dirname(__file__), file_name)
+    try:
+        sound = pygame.mixer.Sound(file_path)
+    except pygame.error as e:
+        print(f"Cannot load sound: {file_name}")
+        print(e)
+        return None
+    return sound
+
 # Initialization
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -52,7 +66,7 @@ pygame.display.set_caption('Snake')
 clock = pygame.time.Clock()
 snake = Snake()
 hamster = Hamster()
-squeak_sound = pygame.mixer.Sound('squeak.wav')
+squeak_sound = load_sound('squeak.wav')
 
 # Game loop
 while True:
