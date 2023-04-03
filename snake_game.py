@@ -16,6 +16,18 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 
+def load_sound(file_name):
+    if not pygame.mixer:
+        return None
+    file_path = os.path.join(os.path.dirname(__file__), file_name)
+    try:
+        sound = pygame.mixer.Sound(file_path)
+    except pygame.error as e:
+        print(f"Cannot load sound: {file_name}")
+        print(e)
+        return None
+    return sound
+
 # Snake and hamster classes
 class Snake:
     def __init__(self):
@@ -46,18 +58,6 @@ class Hamster:
     def respawn(self, snake=None):
         while self.position == [0, 0] or (snake and self.position in snake.segments):
             self.position = [random.randint(0, GRID_WIDTH - 1), random.randint(0, GRID_HEIGHT - 1)]
-
-def load_sound(file_name):
-    if not pygame.mixer:
-        return None
-    file_path = os.path.join(os.path.dirname(__file__), file_name)
-    try:
-        sound = pygame.mixer.Sound(file_path)
-    except pygame.error as e:
-        print(f"Cannot load sound: {file_name}")
-        print(e)
-        return None
-    return sound
 
 # Initialization
 pygame.init()
