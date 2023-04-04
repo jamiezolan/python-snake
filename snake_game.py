@@ -2,6 +2,7 @@ import sys
 import pygame
 from pygame.locals import *
 import random
+import os
 
 # Game settings / Constants
 WIDTH = 640
