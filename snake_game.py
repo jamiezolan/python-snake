@@ -113,7 +113,14 @@ while True:
     for segment in snake.segments:
         pygame.draw.rect(screen, GREEN, Rect(segment[0] * GRID_SIZE, segment[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE))
 
-    pygame.draw.rect(screen, RED, Rect(hamster.position[0] * GRID_SIZE, hamster.position[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE))
+    hamster_rect = Rect(hamster.position[0] * GRID_SIZE, hamster.position[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE)
+    pygame.draw.rect(screen, RED, hamster_rect)
+
+    ear_size = GRID_SIZE // 4
+    ear1_rect = Rect(hamster_rect.left + ear_size, hamster_rect.top - ear_size, ear_size, ear_size)
+    ear2_rect = Rect(hamster_rect.right - ear_size * 2, hamster_rect.top - ear_size, ear_size, ear_size)
+    pygame.draw.rect(screen, RED, ear1_rect)
+    pygame.draw.rect(screen, RED, ear2_rect)
 
     font = pygame.font.Font(None, 24)
     score_text = font.render(f"Score: {score}", True, (0, 0, 0))
