@@ -16,6 +16,7 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 BLACK = (0, 0, 0)
+LIGHT_BROWN = (210, 180, 140)
 
 # Snake class
 class Snake:
@@ -89,8 +90,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# here is the game
 
 # Load sound function
 def load_sound(file_name):
@@ -197,7 +196,7 @@ while True:
         sys.exit()
 
     # Clear screen
-    screen.fill(WHITE)
+    screen.fill(LIGHT_BROWN)
 
     # Draw snake segments
     for segment in snake.segments:
