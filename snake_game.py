@@ -28,7 +28,6 @@ def load_sound(file_name):
         return None
     return sound
 
-# Snake and hamster classes
 class Snake:
     def __init__(self):
         self.segments = [[GRID_WIDTH // 2, GRID_HEIGHT // 2]]
@@ -43,6 +42,8 @@ class Snake:
             hamster.respawn(self)
             if squeak_sound:
                 pygame.mixer.Sound.play(squeak_sound)
+            global score
+            score += 1
         else:
             self.segments.pop()
 
@@ -59,6 +60,21 @@ class Hamster:
         while self.position == [0, 0] or (snake and self.position in snake.segments):
             self.position = [random.randint(0, GRID_WIDTH - 1), random.randint(0, GRID_HEIGHT - 1)]
 
+def check_collision(snake):
+    head_x, head_y = snake.segments[0]
+    if head_x < 0 or head_x >= GRID_WIDTH or head_y < 0 or head_y >= GRID_HEIGHT:
+        return True  # Collision with wall
+    if snake.segments[0] in snake.segments[1:]:
+        return True  # Collision with itself
+    return False
+
+def game_over(screen, score):
+    font = pygame.font.Font(None, 36)
+    text = font.render(f"Game Over! Your score: {score}", True, (0, 0, 0))
+    screen.blit(text, (WIDTH // 2 - text.get_width() // 2, HEIGHT // 2 - text.get_height() // 2))
+    pygame.display.flip()
+    pygame.time.wait(3000)
+
 # Initialization
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -67,6 +83,7 @@ clock = pygame.time.Clock()
 snake = Snake()
 hamster = Hamster()
 squeak_sound = load_sound('squeak.wav')
+score = 0
 
 # Game loop
 while True:
@@ -80,20 +97,4 @@ while True:
                 snake.change_direction((0, -1))
             elif event.key == K_DOWN:
                 snake.change_direction((0, 1))
-            elif event.key == K_LEFT:
-                snake.change_direction((-1, 0))
-            elif event.key == K_RIGHT:
-                snake.change_direction((1, 0))
-
-    snake.move()
-    screen.fill(WHITE)
-
-    # Draw the snake
-    for segment in snake.segments:
-        pygame.draw.rect(screen, GREEN, (segment[0] * GRID_SIZE, segment[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE))
-
-    # Draw the hamster
-    pygame.draw.rect(screen, RED, (hamster.position[0] * GRID_SIZE, hamster.position[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE))
-
-    pygame.display.flip()
-    clock.tick(10)
+            elif event.key == K_LEFT
