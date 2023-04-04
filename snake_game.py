@@ -1,20 +1,96 @@
-import pygame
 import sys
-import random
-import os
+import pygame
 from pygame.locals import *
+import random
 
-# Game settings
+# Game settings / Constants
 WIDTH = 640
 HEIGHT = 480
 GRID_SIZE = 20
 GRID_WIDTH = WIDTH // GRID_SIZE
 GRID_HEIGHT = HEIGHT // GRID_SIZE
+SPEED = 10
 
 # Colors
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
+BLACK = (0, 0, 0)
+
+# Snake class
+class Snake:
+    ...
+
+# Hamster class
+class Hamster:
+    ...
+
+def game_loop(screen, clock):
+    ...
+
+def main():
+    pygame.init()
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    pygame.display.set_caption("Snake 'n Hamster!")
+    clock = pygame.time.Clock()
+
+    # Splash screen function
+    def splash_screen():
+        running = True
+        # Create font and render text
+        font = pygame.font.Font(None, 36)
+        text = font.render("Snake 'n Hamster!", True, WHITE)
+        text_rect = text.get_rect(center=(WIDTH // 2, HEIGHT // 4))
+
+        # Create New Game and Exit buttons
+        new_game_button = pygame.Rect(WIDTH // 2 - 60, HEIGHT // 2 - 20, 120, 40)
+        exit_button = pygame.Rect(WIDTH // 2 - 60, HEIGHT // 2 + 40, 120, 40)
+
+        while running:
+            for event in pygame.event.get():
+                # Handle quit and key events
+                if event.type == QUIT:
+                    pygame.quit()
+                    sys.exit()
+                elif event.type == KEYDOWN:
+                    if event.key == K_ESCAPE:
+                        pygame.quit()
+                        sys.exit()
+
+                # Check for mouse button clicks on the buttons
+                elif event.type == MOUSEBUTTONDOWN:
+                    if new_game_button.collidepoint(event.pos):
+                        running = False
+                    elif exit_button.collidepoint(event.pos):
+                        pygame.quit()
+                        sys.exit()
+
+            # Draw the screen, text, and buttons
+            screen.fill(BLACK)
+            screen.blit(text, text_rect)
+            pygame.draw.rect(screen, GREEN, new_game_button, 2)
+            pygame.draw.rect(screen, GREEN, exit_button, 2)
+
+            # Draw button labels
+            new_game_text = font.render("New Game", True, WHITE)
+            new_game_text_rect = new_game_text.get_rect(center=new_game_button.center)
+            screen.blit(new_game_text, new_game_text_rect)
+
+            exit_text = font.render("Exit", True, WHITE)
+            exit_text_rect = exit_text.get_rect(center=exit_button.center)
+            screen.blit(exit_text, exit_text_rect)
+
+            pygame.display.flip()
+            clock.tick(30)
+
+    # Show splash screen and start the game loop
+    splash_screen()
+    game_loop(screen, clock)
+
+if __name__ == "__main__":
+    main()
+
+# here is the game
 
 # Load sound function
 def load_sound(file_name):
@@ -131,9 +207,10 @@ while True:
     eye_size = GRID_SIZE // 4
     eye_offset = GRID_SIZE // 4
     eye1_rect = Rect(snake.segments[0][0] * GRID_SIZE + eye_offset, snake.segments[0][1] * GRID_SIZE + eye_offset, eye_size, eye_size)
-    eye2_rect = Rect(snake.segments[0][0] * GRID_SIZE + GRID_SIZE - eye_offset * 2, snake.segments[0][1] * GRID_SIZE + eye_offset, eye_size, eye_size)
-    pygame.draw.rect(screen, (0, 0, 0), eye1_rect)
-    pygame.draw.rect(screen, (0, 0, 0), eye2_rect)
+    eye2_rect = Rect(snake.segments[0][0] * GRID_SIZE + GRID_SIZE - eye_offset * 1.5, snake.segments[0][1] * GRID_SIZE + eye_offset, eye_size, eye_size)
+    dark_green = (0, 100, 0)
+    pygame.draw.rect(screen, dark_green, eye1_rect)
+    pygame.draw.rect(screen, dark_green, eye2_rect)
 
     # Draw hamster body
     hamster_rect = Rect(hamster.position[0] * GRID_SIZE, hamster.position[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE)
@@ -150,7 +227,7 @@ while True:
     eye_size = GRID_SIZE // 4
     eye_offset = GRID_SIZE // 4
     eye1_rect = Rect(hamster_rect.left + eye_offset, hamster_rect.top + eye_offset, eye_size, eye_size)
-    eye2_rect = Rect(hamster_rect.right - eye_offset * 2, hamster_rect.top + eye_offset, eye_size, eye_size)
+    eye2_rect = Rect(hamster_rect.right - eye_offset * 1.5, hamster_rect.top + eye_offset, eye_size, eye_size)
     pygame.draw.rect(screen, (0, 0, 0), eye1_rect)
     pygame.draw.rect(screen, (0, 0, 0), eye2_rect)
 
