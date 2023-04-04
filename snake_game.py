@@ -43,7 +43,7 @@ def main():
         text_rect = text.get_rect(center=(WIDTH // 2, HEIGHT // 4))
 
         # Create New Game and Exit buttons
-        new_game_button = pygame.Rect(WIDTH // 2 - 60, HEIGHT // 2 - 20, 120, 40)
+        new_game_button = pygame.Rect(WIDTH // 2 - 80, HEIGHT // 2 - 30, 160, 60)
         exit_button = pygame.Rect(WIDTH // 2 - 60, HEIGHT // 2 + 40, 120, 40)
 
         while running:
