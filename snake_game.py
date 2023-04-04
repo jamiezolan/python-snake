@@ -97,4 +97,27 @@ while True:
                 snake.change_direction((0, -1))
             elif event.key == K_DOWN:
                 snake.change_direction((0, 1))
-            elif event.key == K_LEFT
+            elif event.key == K_LEFT:
+                snake.change_direction((-1, 0))
+            elif event.key == K_RIGHT:
+                snake.change_direction((1, 0))
+
+    snake.move()
+    if check_collision(snake):
+        game_over(screen, score)
+        pygame.quit()
+        sys.exit()
+
+    screen.fill(WHITE)
+
+    for segment in snake.segments:
+        pygame.draw.rect(screen, GREEN, Rect(segment[0] * GRID_SIZE, segment[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE))
+
+    pygame.draw.rect(screen, RED, Rect(hamster.position[0] * GRID_SIZE, hamster.position[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE))
+
+    font = pygame.font.Font(None, 24)
+    score_text = font.render(f"Score: {score}", True, (0, 0, 0))
+    screen.blit(score_text, (5, 5))
+
+    pygame.display.flip()
+    clock.tick(10)
