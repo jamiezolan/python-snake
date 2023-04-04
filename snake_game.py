@@ -16,6 +16,7 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 
+# Load sound function
 def load_sound(file_name):
     if not pygame.mixer:
         return None
@@ -28,11 +29,13 @@ def load_sound(file_name):
         return None
     return sound
 
+# Snake class
 class Snake:
     def __init__(self):
         self.segments = [[GRID_WIDTH // 2, GRID_HEIGHT // 2]]
         self.direction = (1, 0)
 
+    # Move snake
     def move(self):
         head_x, head_y = self.segments[0]
         dx, dy = self.direction
@@ -47,19 +50,23 @@ class Snake:
         else:
             self.segments.pop()
 
+    # Change snake direction
     def change_direction(self, new_direction):
         if new_direction[0] * self.direction[0] + new_direction[1] * self.direction[1] == 0:
             self.direction = new_direction
 
+# Hamster class
 class Hamster:
     def __init__(self):
         self.position = [0, 0]
         self.respawn()
 
+    # Respawn hamster
     def respawn(self, snake=None):
         while self.position == [0, 0] or (snake and self.position in snake.segments):
             self.position = [random.randint(0, GRID_WIDTH - 1), random.randint(0, GRID_HEIGHT - 1)]
 
+# Check for collisions
 def check_collision(snake):
     head_x, head_y = snake.segments[0]
     if head_x < 0 or head_x >= GRID_WIDTH or head_y < 0 or head_y >= GRID_HEIGHT:
@@ -68,6 +75,7 @@ def check_collision(snake):
         return True  # Collision with itself
     return False
 
+# Game over screen
 def game_over(screen, score):
     font = pygame.font.Font(None, 36)
     text = font.render(f"Game Over! Your score: {score}", True, (0, 0, 0))
@@ -87,6 +95,7 @@ score = 0
 
 # Game loop
 while True:
+    # Event handling
     for event in pygame.event.get():
         if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
             pygame.quit()
@@ -102,29 +111,38 @@ while True:
             elif event.key == K_RIGHT:
                 snake.change_direction((1, 0))
 
+    # Move the snake
     snake.move()
+
+    # Check for collisions
     if check_collision(snake):
         game_over(screen, score)
         pygame.quit()
         sys.exit()
 
+    # Clear screen
     screen.fill(WHITE)
 
+    # Draw snake segments
     for segment in snake.segments:
         pygame.draw.rect(screen, GREEN, Rect(segment[0] * GRID_SIZE, segment[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE))
 
+    # Draw hamster body
     hamster_rect = Rect(hamster.position[0] * GRID_SIZE, hamster.position[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE)
     pygame.draw.rect(screen, RED, hamster_rect)
 
+    # Draw hamster ears
     ear_size = GRID_SIZE // 4
-    ear1_rect = Rect(hamster_rect.left + ear_size, hamster_rect.top - ear_size, ear_size, ear_size)
-    ear2_rect = Rect(hamster_rect.right - ear_size * 2, hamster_rect.top - ear_size, ear_size, ear_size)
+    ear1_rect = Rect(hamster_rect.left, hamster_rect.top - ear_size, ear_size, ear_size)
+    ear2_rect = Rect(hamster_rect.right - ear_size, hamster_rect.top - ear_size, ear_size, ear_size)
     pygame.draw.rect(screen, RED, ear1_rect)
     pygame.draw.rect(screen, RED, ear2_rect)
 
+    # Display score
     font = pygame.font.Font(None, 24)
     score_text = font.render(f"Score: {score}", True, (0, 0, 0))
     screen.blit(score_text, (5, 5))
 
+    # Update display
     pygame.display.flip()
     clock.tick(10)

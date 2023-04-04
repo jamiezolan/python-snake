@@ -75,57 +75,21 @@
    'C:\\Users\\Jamie '
    'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\libopus-0.dll',
    'BINARY'),
-  ('SDL2.dll',
-   'C:\\Users\\Jamie '
-   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\SDL2.dll',
-   'BINARY'),
-  ('SDL2_image.dll',
-   'C:\\Users\\Jamie '
-   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\SDL2_image.dll',
-   'BINARY'),
-  ('libtiff-5.dll',
-   'C:\\Users\\Jamie '
-   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\libtiff-5.dll',
-   'BINARY'),
-  ('libmodplug-1.dll',
-   'C:\\Users\\Jamie '
-   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\libmodplug-1.dll',
-   'BINARY'),
-  ('libwebp-7.dll',
-   'C:\\Users\\Jamie '
-   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\libwebp-7.dll',
-   'BINARY'),
-  ('libopenblas64__v0.3.21-gcc_10_3_0.dll',
-   'C:\\Users\\Jamie '
-   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\numpy\\.libs\\libopenblas64__v0.3.21-gcc_10_3_0.dll',
-   'BINARY'),
   ('libopusfile-0.dll',
    'C:\\Users\\Jamie '
    'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\libopusfile-0.dll',
-   'BINARY'),
-  ('SDL2_mixer.dll',
-   'C:\\Users\\Jamie '
-   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\SDL2_mixer.dll',
-   'BINARY'),
-  ('freetype.dll',
-   'C:\\Users\\Jamie '
-   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\freetype.dll',
-   'BINARY'),
-  ('portmidi.dll',
-   'C:\\Users\\Jamie '
-   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\portmidi.dll',
-   'BINARY'),
-  ('SDL2_ttf.dll',
-   'C:\\Users\\Jamie '
-   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\SDL2_ttf.dll',
    'BINARY'),
   ('zlib1.dll',
    'C:\\Users\\Jamie '
    'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\zlib1.dll',
    'BINARY'),
-  ('libjpeg-9.dll',
+  ('libmodplug-1.dll',
    'C:\\Users\\Jamie '
-   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\libjpeg-9.dll',
+   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\libmodplug-1.dll',
+   'BINARY'),
+  ('libtiff-5.dll',
+   'C:\\Users\\Jamie '
+   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\libtiff-5.dll',
    'BINARY'),
   ('libogg-0.dll',
    'C:\\Users\\Jamie '
@@ -134,6 +98,42 @@
   ('libpng16-16.dll',
    'C:\\Users\\Jamie '
    'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\libpng16-16.dll',
+   'BINARY'),
+  ('libjpeg-9.dll',
+   'C:\\Users\\Jamie '
+   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\libjpeg-9.dll',
+   'BINARY'),
+  ('SDL2_ttf.dll',
+   'C:\\Users\\Jamie '
+   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\SDL2_ttf.dll',
+   'BINARY'),
+  ('libopenblas64__v0.3.21-gcc_10_3_0.dll',
+   'C:\\Users\\Jamie '
+   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\numpy\\.libs\\libopenblas64__v0.3.21-gcc_10_3_0.dll',
+   'BINARY'),
+  ('freetype.dll',
+   'C:\\Users\\Jamie '
+   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\freetype.dll',
+   'BINARY'),
+  ('SDL2_image.dll',
+   'C:\\Users\\Jamie '
+   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\SDL2_image.dll',
+   'BINARY'),
+  ('SDL2_mixer.dll',
+   'C:\\Users\\Jamie '
+   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\SDL2_mixer.dll',
+   'BINARY'),
+  ('portmidi.dll',
+   'C:\\Users\\Jamie '
+   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\portmidi.dll',
+   'BINARY'),
+  ('SDL2.dll',
+   'C:\\Users\\Jamie '
+   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\SDL2.dll',
+   'BINARY'),
+  ('libwebp-7.dll',
+   'C:\\Users\\Jamie '
+   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\libwebp-7.dll',
    'BINARY'),
   ('select.pyd',
    'C:\\Users\\Jamie '
@@ -355,29 +355,29 @@
    'C:\\Users\\Jamie '
    'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\base.cp311-win_amd64.pyd',
    'EXTENSION'),
+  ('pygame\\libogg-0.dll',
+   'C:\\Users\\Jamie '
+   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\libogg-0.dll',
+   'BINARY'),
   ('pygame\\libjpeg-9.dll',
    'C:\\Users\\Jamie '
    'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\libjpeg-9.dll',
    'BINARY'),
-  ('pygame\\zlib1.dll',
+  ('pygame\\SDL2.dll',
    'C:\\Users\\Jamie '
-   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\zlib1.dll',
-   'BINARY'),
-  ('pygame\\libogg-0.dll',
-   'C:\\Users\\Jamie '
-   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\libogg-0.dll',
+   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pygame\\SDL2.dll',
    'BINARY'),
   ('libffi-8.dll',
    'C:\\Users\\Jamie '
    'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\libffi-8.dll',
    'BINARY'),
-  ('libcrypto-1_1.dll',
-   'C:\\Users\\Jamie '
-   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\libcrypto-1_1.dll',
-   'BINARY'),
   ('libssl-1_1.dll',
    'C:\\Users\\Jamie '
    'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\libssl-1_1.dll',
+   'BINARY'),
+  ('libcrypto-1_1.dll',
+   'C:\\Users\\Jamie '
+   'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\DLLs\\libcrypto-1_1.dll',
    'BINARY'),
   ('base_library.zip',
    'C:\\Users\\Jamie '
@@ -397,7 +397,7 @@
  [],
  False,
  False,
- 1680571983,
+ 1680572818,
  [('run.exe',
    'C:\\Users\\Jamie '
    'Zolan\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\run.exe',
