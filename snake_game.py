@@ -161,7 +161,7 @@ def game_over(screen, score):
 # Initialization
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption('Snake')
+pygame.display.set_caption("Snake 'n Hamster!")
 clock = pygame.time.Clock()
 snake = Snake()
 hamster = Hamster()
