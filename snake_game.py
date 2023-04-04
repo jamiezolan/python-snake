@@ -127,6 +127,14 @@ while True:
     for segment in snake.segments:
         pygame.draw.rect(screen, GREEN, Rect(segment[0] * GRID_SIZE, segment[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE))
 
+    # Draw snake eyes on the head
+    eye_size = GRID_SIZE // 4
+    eye_offset = GRID_SIZE // 4
+    eye1_rect = Rect(snake.segments[0][0] * GRID_SIZE + eye_offset, snake.segments[0][1] * GRID_SIZE + eye_offset, eye_size, eye_size)
+    eye2_rect = Rect(snake.segments[0][0] * GRID_SIZE + GRID_SIZE - eye_offset * 2, snake.segments[0][1] * GRID_SIZE + eye_offset, eye_size, eye_size)
+    pygame.draw.rect(screen, (0, 0, 0), eye1_rect)
+    pygame.draw.rect(screen, (0, 0, 0), eye2_rect)
+
     # Draw hamster body
     hamster_rect = Rect(hamster.position[0] * GRID_SIZE, hamster.position[1] * GRID_SIZE, GRID_SIZE, GRID_SIZE)
     pygame.draw.rect(screen, RED, hamster_rect)
@@ -137,6 +145,14 @@ while True:
     ear2_rect = Rect(hamster_rect.right - ear_size, hamster_rect.top - ear_size, ear_size, ear_size)
     pygame.draw.rect(screen, RED, ear1_rect)
     pygame.draw.rect(screen, RED, ear2_rect)
+
+    # Draw hamster eyes
+    eye_size = GRID_SIZE // 4
+    eye_offset = GRID_SIZE // 4
+    eye1_rect = Rect(hamster_rect.left + eye_offset, hamster_rect.top + eye_offset, eye_size, eye_size)
+    eye2_rect = Rect(hamster_rect.right - eye_offset * 2, hamster_rect.top + eye_offset, eye_size, eye_size)
+    pygame.draw.rect(screen, (0, 0, 0), eye1_rect)
+    pygame.draw.rect(screen, (0, 0, 0), eye2_rect)
 
     # Display score
     font = pygame.font.Font(None, 24)
